@@ -5,20 +5,22 @@ public class Evento {
     double tempo;
     double [] temposX;
     int tamX;
+    double demora;
 
-    public Evento(double tempo, double tempoX, int posX, String tipo, int tamX) {
+    public Evento(double tempo, double tempoX, int posX, String tipo, int tamX, double demora) {
         this.tempo = tempo;
         this.tipo = tipo;
-        temposX = new double[tamX];
+        temposX = new double[tamX+1];
         for (int i = 0; i < temposX.length; i++) {
             temposX[i] = 0;
         }
         temposX[posX] += tempoX;
+        this.demora = demora;
         
     }
 
     @Override
     public String toString() {
-        return "\nEvento [tipo=" + tipo + ", tempo=" + tempo + ", temposX=" + Arrays.toString(temposX) + "]";
+        return "\nEvento [tipo=" + tipo + ", demora=" + demora + ", tempo=" + tempo + ", temposX=" + Arrays.toString(temposX) + "]";
     }
 }
